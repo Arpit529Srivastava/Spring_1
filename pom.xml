@@ -6,8 +6,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.movie</groupId>
-    <artifactId>recommendation</artifactId>
+    <groupId>com.library</groupId>
+    <artifactId>library-system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -19,7 +19,7 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Context (Core DI, @Component, @Configuration, @Qualifier) -->
+        <!-- Spring Context (Core DI, @Component, @Configuration, @Qualifier, SpEL) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
