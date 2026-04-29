@@ -1,8 +1,14 @@
 package com.college.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -14,6 +20,10 @@ public class Student {
     private String name;
     private String email;
     private String department;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "student-enrollment")
+    private List<Enrollment> enrollments = new ArrayList<>();
 
     public Student() {
     }
@@ -55,5 +65,13 @@ public class Student {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public List<Enrollment> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 }
